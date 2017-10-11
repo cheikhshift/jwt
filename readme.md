@@ -61,5 +61,5 @@ Use the following function to set the unauthorized request code :
 
 ### Create a new token
 
-	func toJWT(payload JSON) string
+	func ToJWT(payload JSON) string
 
