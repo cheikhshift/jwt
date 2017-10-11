@@ -23,7 +23,7 @@ type Token struct {
 	Header, Payload bson.M
 }
 
-func toJWT(payload JSON) string {
+func ToJWT(payload JSON) string {
 	message := fmt.Sprintf("%s.%s", Base64(Sha512Header), Base64(tojson(payload)))
 	return fmt.Sprintf("%s.%s", message, GenerateMAC([]byte(message)))
 }
