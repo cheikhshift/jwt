@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gos>
-	<!-- xml docs : http://golangserver.com/docs/markup.html -->
-	<deploy>package</deploy>
-	<package>jwt</package>
-	<import src="github.com/cheikhshift/jwt"/>
-	<main>	
-	//psss go code here : func main()
-	//fmt.Println(toJWT(JSON{"Hello" : "World"}))
-	</main>
+  <!-- xml docs : http://golangserver.com/docs/markup.html -->
+  <deploy>package</deploy>
+  <package>jwt</package>
+  <import src="github.com/cheikhshift/jwt"/>
+  <main>  
+  //psss go code here : func main()
+  //fmt.Println(toJWT(JSON{"Hello" : "World"}))
+  </main>
 
-	
+  
 
-	<endpoints>
-  		<end path="/test/jwt" type="f" >
+  <endpoints>
+      <end path="/test/jwt" type="f" >
  
-  			if !strings.Contains(r.Header.Get("Authorization"), "Bearer") {
-  				jwt.CancelRequest(w)
-  				w.Write([]byte("Invalid authorization token") )
-  				return true
-  			}
-  			bits := strings.Split(r.Header.Get("Authorization"), " ")
+        if !strings.Contains(r.Header.Get("Authorization"), "Bearer") {
+          jwt.CancelRequest(w)
+          w.Write([]byte("Invalid authorization token") )
+          return true
+        }
+        bits := strings.Split(r.Header.Get("Authorization"), " ")
 
-  			token,err := jwt.Process(bits[len(bits) - 1])
-  			if err != nil {
-  				CancelRequest(w)
-  				w.Write([]byte("Invalid authorization token") )
-  				return true
-  			}
-  			w.Write([]byte(mResponse(token)) )
-  			return true
-  		</end>
-	</endpoints>
+        token,err := jwt.Process(bits[len(bits) - 1])
+        if err != nil {
+          jwt.CancelRequest(w)
+          w.Write([]byte("Invalid authorization token") )
+          return true
+        }
+        w.Write([]byte(mResponse(token)) )
+        return true
+      </end>
+  </endpoints>
 </gos>

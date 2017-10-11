@@ -13,6 +13,12 @@ How to install on Go server
 
 	<import src="github.com/cheikhshift/jwt/gos.gxml" />
 
+
+#### Dependencies
+The package depends on `gopkg.in/mgo.v2`
+
+	go get gopkg.in/mgo.v2
+
 ### Package interfaces
 
 #### JSON
