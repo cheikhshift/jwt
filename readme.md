@@ -1,6 +1,6 @@
 # go-jwt
 
-Generate and validate JWT ( open standard RFC 7519 )  tokens with Go. The project is also compatible with [golangserver.com](http://golangserver.com).
+Generate and validate JWT ( open standard RFC 7519 )  tokens with Go. The project is also compatible with [golangserver.com](http://golangserver.com). This project only supports HMAC 256.
 
 # Install
 
@@ -34,6 +34,13 @@ Notes : This is the equivalent of `map[string]interface{}`
 		Header, Payload bson.M
 	}
 
+### Variables
+
+#### Key
+
+	var Key string
+	
+Secret key used to generate message signatures.
 
 ### Processing tokens
 
